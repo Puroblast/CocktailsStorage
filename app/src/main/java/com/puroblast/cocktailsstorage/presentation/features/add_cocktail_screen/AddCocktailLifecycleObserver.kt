@@ -11,8 +11,7 @@ import com.puroblast.cocktailsstorage.utils.IMAGE_PATH
 import com.puroblast.cocktailsstorage.utils.REGISTRY_KEY
 
 class AddCocktailLifecycleObserver(
-    private val registry: ActivityResultRegistry,
-    private val binding: FragmentAddCocktailBinding
+    private val registry: ActivityResultRegistry, private val binding: FragmentAddCocktailBinding
 ) : DefaultLifecycleObserver {
 
     private lateinit var getContent: ActivityResultLauncher<String>

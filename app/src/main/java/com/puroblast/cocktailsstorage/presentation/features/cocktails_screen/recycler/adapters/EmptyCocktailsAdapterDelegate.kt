@@ -12,21 +12,14 @@ import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonDelegateItem
 
 class EmptyCocktailsAdapterDelegate : CommonAdapterDelegate {
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
-        val view =
-            LayoutInflater
-                .from(parent.context)
-                .inflate(
-                    R.layout.empty_cocktails_item,
-                    parent,
-                    false
-                )
+        val view = LayoutInflater.from(parent.context).inflate(
+                R.layout.empty_cocktails_item, parent, false
+            )
         return CocktailsViewHolder(view)
     }
 
     override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder,
-        item: CommonDelegateItem,
-        position: Int
+        holder: RecyclerView.ViewHolder, item: CommonDelegateItem, position: Int
     ) {
         val layoutParams = holder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams
         layoutParams.isFullSpan = true

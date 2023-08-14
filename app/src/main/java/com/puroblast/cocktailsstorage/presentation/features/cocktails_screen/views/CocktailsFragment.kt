@@ -34,7 +34,11 @@ class CocktailsFragment : Fragment(R.layout.fragment_cocktails) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
 
+    }
+
+    private fun initView() {
         val cocktailsLM = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
         val cocktailsAdapter = CommonAdapter()
         cocktailsAdapter.apply {

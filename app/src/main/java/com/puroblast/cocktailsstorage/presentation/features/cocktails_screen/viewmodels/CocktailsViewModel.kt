@@ -31,11 +31,9 @@ class CocktailsViewModel @Inject constructor(
             val items = storage.getAll()
             val headerItemList = mutableListOf<CommonDelegateItem>(MyCocktailsHeaderItem())
             if (items.isEmpty()) {
-                _cocktailsState.value =
-                    _cocktailsState.value.copy(
-                        items = listOf(EmptyCocktailsAdapterItem()),
-                        isBottomSheetVisible = false
-                    )
+                _cocktailsState.value = _cocktailsState.value.copy(
+                    items = listOf(EmptyCocktailsAdapterItem()), isBottomSheetVisible = false
+                )
             } else {
                 headerItemList.addAll(mapper.map(items))
                 _cocktailsState.value =

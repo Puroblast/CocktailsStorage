@@ -4,10 +4,8 @@ import com.puroblast.cocktailsstorage.R
 import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonDelegateItem
 
 class EmptyCocktailsAdapterItem(
-    val id: Int = 0,
-    private val layoutId: Int = R.layout.empty_cocktails_item
-) :
-    CommonDelegateItem {
+    val id: Int = 0, private val layoutId: Int = R.layout.empty_cocktails_item
+) : CommonDelegateItem {
 
     override fun content(): Any = layoutId
 

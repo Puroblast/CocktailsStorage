@@ -22,14 +22,21 @@ class AddCocktailFragment : Fragment(R.layout.fragment_add_cocktail) {
 
     private val binding by viewBinding(FragmentAddCocktailBinding::bind)
     private lateinit var observer: AddCocktailLifecycleObserver
-    private val viewmodel by viewModels<AddCocktailViewModel>()
+    private val viewModel by viewModels<AddCocktailViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
 
+    }
+
+    private fun initView() {
         observer = AddCocktailLifecycleObserver(requireActivity().activityResultRegistry, binding)
         lifecycle.addObserver(observer)
+        setupListeners()
+    }
 
+    private fun setupListeners() {
         with(binding) {
             ImageCocktailCV.setOnClickListener {
                 observer.selectImage()
@@ -39,7 +46,7 @@ class AddCocktailFragment : Fragment(R.layout.fragment_add_cocktail) {
             }
             saveBtn.setOnClickListener {
                 if (cocktailNameET.text.toString().isNotEmpty()) {
-                    viewmodel.save(
+                    viewModel.save(
                         Cocktail(
                             title = cocktailNameET.text.toString(),
                             ingredients = emptyList()

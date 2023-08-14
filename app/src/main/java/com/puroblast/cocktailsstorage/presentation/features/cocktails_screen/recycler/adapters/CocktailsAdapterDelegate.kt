@@ -11,21 +11,14 @@ import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonDelegateItem
 
 class CocktailsAdapterDelegate : CommonAdapterDelegate {
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
-        val view =
-            LayoutInflater
-                .from(parent.context)
-                .inflate(
-                    R.layout.cocktails_item,
-                    parent,
-                    false
-                )
+        val view = LayoutInflater.from(parent.context).inflate(
+                R.layout.cocktails_item, parent, false
+            )
         return CocktailsViewHolder(view)
     }
 
     override fun onBindViewHolder(
-        holder: ViewHolder,
-        item: CommonDelegateItem,
-        position: Int
+        holder: ViewHolder, item: CommonDelegateItem, position: Int
     ) {
         (holder as CocktailsViewHolder).bind(item)
     }
