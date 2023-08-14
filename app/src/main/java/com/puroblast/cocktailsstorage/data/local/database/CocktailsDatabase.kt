@@ -11,6 +11,6 @@ import com.puroblast.cocktailsstorage.data.local.entities.Cocktail
 @TypeConverters(IngredientsConverter::class)
 abstract class CocktailsDatabase : RoomDatabase() {
 
-    abstract fun cocktailsDao() : CocktailsDao
+    abstract fun cocktailsDao(): CocktailsDao
 
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/cocktailsFragment">
+
+    <fragment
+        android:id="@+id/cocktailsFragment"
+        android:name="com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.views.CocktailsFragment"
+        android:label="fragment_cocktails"
+        tools:layout="@layout/fragment_cocktails">
+        <action
+            android:id="@+id/action_cocktailsFragment_to_addCocktailFragment2"
+            app:destination="@id/addCocktailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCocktailFragment"
+        android:name="com.puroblast.cocktailsstorage.presentation.features.add_cocktail_screen.views.AddCocktailFragment"
+        android:label="fragment_add_cocktail"
+        tools:layout="@layout/fragment_add_cocktail">
+        <action
+            android:id="@+id/action_addCocktailFragment_to_cocktailsFragment2"
+            app:destination="@id/cocktailsFragment" />
+    </fragment>
+</navigation>

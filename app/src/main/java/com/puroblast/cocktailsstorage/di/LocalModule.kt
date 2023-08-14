@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.puroblast.cocktailsstorage.data.local.database.CocktailsDatabase
 import com.puroblast.cocktailsstorage.data.local.dao.CocktailsDao
+import com.puroblast.cocktailsstorage.utils.COCKTAILS_DATABASE
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +16,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object LocalModule {
 
-    private const val COCKTAILS_DATABASE = "COCKTAILS_DATABASE"
 
     @Provides
     fun providesDao(database: CocktailsDatabase): CocktailsDao {
@@ -28,8 +28,10 @@ object LocalModule {
         return Room.databaseBuilder(
             context,
             CocktailsDatabase::class.java,
-            COCKTAILS_DATABASE)
+            COCKTAILS_DATABASE
+        )
             .build()
     }
+
 
 }

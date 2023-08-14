@@ -10,7 +10,7 @@ import com.puroblast.cocktailsstorage.data.local.entities.Cocktail
 interface CocktailsDao {
 
     @Query("SELECT * FROM Cocktail")
-    suspend fun getAll() : List<Cocktail>
+    suspend fun getAll(): List<Cocktail>
 
     @Insert(onConflict = REPLACE)
     suspend fun insert(cocktail: Cocktail)

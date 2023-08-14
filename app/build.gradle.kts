@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.puroblast.cocktailsstorage"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.puroblast.cocktailsstorage"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -50,16 +50,32 @@ dependencies {
     implementation(libs.constraintlayout)
     //Common libs End
 
-    // DI Start
+    // Hilt Start
     implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.fragment)
     kapt(libs.hilt.android.compiler)
-    // DI End
+    // Hilt End
+
+    // Coroutines Region
+    implementation (libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
+    // Coroutines End Region
 
     //Room Start
     implementation(libs.androidx.room.runtime)
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
     //Room End
+
+    //Navigation Start
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    //Navigation End
+
+    //Lifecycle Start
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    //Lifecycle End
 
     //ViewBinding Start
     implementation(libs.viewbindingpropertydelegate.noreflection)
