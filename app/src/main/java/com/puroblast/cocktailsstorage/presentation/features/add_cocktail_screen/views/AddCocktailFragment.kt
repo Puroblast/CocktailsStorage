@@ -13,9 +13,9 @@ import com.puroblast.cocktailsstorage.data.local.entities.Cocktail
 import com.puroblast.cocktailsstorage.databinding.FragmentAddCocktailBinding
 import com.puroblast.cocktailsstorage.presentation.features.add_cocktail_screen.AddCocktailLifecycleObserver
 import com.puroblast.cocktailsstorage.presentation.features.add_cocktail_screen.viewmodels.AddCocktailViewModel
-import com.puroblast.cocktailsstorage.utils.TITLE_TEXT
 import dagger.hilt.android.AndroidEntryPoint
 
+private const val TITLE_TEXT = "Add title"
 
 @AndroidEntryPoint
 class AddCocktailFragment : Fragment(R.layout.fragment_add_cocktail) {
@@ -27,7 +27,11 @@ class AddCocktailFragment : Fragment(R.layout.fragment_add_cocktail) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+    }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        lifecycle.removeObserver(observer)
     }
 
     private fun initView() {
@@ -38,27 +42,26 @@ class AddCocktailFragment : Fragment(R.layout.fragment_add_cocktail) {
 
     private fun setupListeners() {
         with(binding) {
-            ImageCocktailCV.setOnClickListener {
+            cocktailImageCard.setOnClickListener {
                 observer.selectImage()
             }
-            cancelBtn.setOnClickListener {
+            cancelButton.setOnClickListener {
                 findNavController().popBackStack()
             }
-            saveBtn.setOnClickListener {
-                if (cocktailNameET.text.toString().isNotEmpty()) {
+            saveButton.setOnClickListener {
+                if (cocktailNameText.text.toString().isNotEmpty()) {
                     viewModel.save(
                         Cocktail(
-                            title = cocktailNameET.text.toString(),
-                            ingredients = emptyList()
+                            title = cocktailNameText.text.toString(), ingredients = emptyList()
                         )
                     )
                     findNavController().popBackStack()
                 } else {
                     val redColor = ContextCompat.getColor(requireContext(), R.color.red)
-                    cocktailNameTIL.error = TITLE_TEXT
-                    cocktailNameET.setHintTextColor(redColor)
-                    cocktailNameTIL.placeholderTextColor = ColorStateList.valueOf(redColor)
-                    cocktailNameTIL.hintTextColor = ColorStateList.valueOf(redColor)
+                    cocktailNameInput.error = TITLE_TEXT
+                    cocktailNameText.setHintTextColor(redColor)
+                    cocktailNameInput.placeholderTextColor = ColorStateList.valueOf(redColor)
+                    cocktailNameInput.hintTextColor = ColorStateList.valueOf(redColor)
                 }
 
             }

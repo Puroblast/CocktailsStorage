@@ -8,14 +8,14 @@ plugins {
 
 android {
     namespace = "com.puroblast.cocktailsstorage"
-    compileSdk = 34
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "com.puroblast.cocktailsstorage"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
+        versionCode = libs.versions.versionCode.get().toInt()
+        versionName = libs.versions.versionName.get()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -34,7 +34,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = libs.versions.jvmTarget.get()
     }
 
     buildFeatures {
@@ -43,47 +43,47 @@ android {
 }
 
 dependencies {
-    //Common libs Start
+    //Common libs region
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
-    //Common libs End
+    //Common libs endregion
 
-    // Hilt Start
+    // Hilt region
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.fragment)
     kapt(libs.hilt.android.compiler)
-    // Hilt End
+    // Hilt endregion
 
-    // Coroutines Region
+    // Coroutines region
     implementation (libs.kotlinx.coroutines.core)
     implementation (libs.kotlinx.coroutines.android)
-    // Coroutines End Region
+    // Coroutines endregion
 
-    //Room Start
+    //Room region
     implementation(libs.androidx.room.runtime)
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
-    //Room End
+    //Room endregion
 
-    //Navigation Start
+    //Navigation region
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    //Navigation End
+    //Navigation endregion
 
-    //Lifecycle Start
+    //Lifecycle region
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-    //Lifecycle End
+    //Lifecycle endregion
 
-    //ViewBinding Start
+    //ViewBinding region
     implementation(libs.viewbindingpropertydelegate.noreflection)
-    //ViewBinding End
+    //ViewBinding endregion
 
-    //Test Start
+    //Tests region
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    //Test End
+    //Tests endregion
 }

@@ -11,19 +11,25 @@ import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonAdapterDelega
 import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonDelegateItem
 
 class HeaderAdapterDelegate : CommonAdapterDelegate {
+
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
-                R.layout.my_cocktails_header_item, parent, false
-            )
+            R.layout.my_cocktails_header_item,
+            parent,
+            false
+        )
         return CocktailsViewHolder(view)
     }
 
     override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder, item: CommonDelegateItem, position: Int
+        holder: RecyclerView.ViewHolder,
+        item: CommonDelegateItem,
+        position: Int
     ) {
         val layoutParams = holder.itemView.layoutParams as StaggeredGridLayoutManager.LayoutParams
         layoutParams.isFullSpan = true
     }
 
     override fun isOfViewType(item: CommonDelegateItem): Boolean = item is MyCocktailsHeaderItem
+
 }

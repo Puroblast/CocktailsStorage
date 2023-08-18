@@ -4,7 +4,8 @@ import com.puroblast.cocktailsstorage.R
 import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonDelegateItem
 
 class MyCocktailsHeaderItem(
-    val id: Int = 1, private val layoutId: Int = R.layout.my_cocktails_header_item
+    val id: Int = 1,
+    private val layoutId: Int = R.layout.my_cocktails_header_item
 ) : CommonDelegateItem {
     override fun content(): Any = layoutId
 
@@ -13,4 +14,5 @@ class MyCocktailsHeaderItem(
     override fun compareToOther(other: CommonDelegateItem): Boolean {
         return (other as MyCocktailsHeaderItem).layoutId == content()
     }
+
 }

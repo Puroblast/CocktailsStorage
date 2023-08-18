@@ -9,12 +9,14 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddCocktailViewModel @Inject constructor(private val storage: CocktailsStorage) :
-    ViewModel() {
+class AddCocktailViewModel @Inject constructor(
+    private val storage: CocktailsStorage
+) : ViewModel() {
 
     fun save(cocktail: Cocktail) {
         viewModelScope.launch {
             storage.save(cocktail)
         }
     }
+
 }

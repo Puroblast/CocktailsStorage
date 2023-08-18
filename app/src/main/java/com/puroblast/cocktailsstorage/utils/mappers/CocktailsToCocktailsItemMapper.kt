@@ -11,4 +11,5 @@ class CocktailsToCocktailsItemMapper @Inject constructor() {
             CocktailsAdapterItem(id = it.id, value = it)
         }
     }
+
 }

@@ -6,26 +6,26 @@
     android:layout_marginVertical="30dp">
 
     <ImageView
-        android:id="@+id/emptyPageIV"
+        android:id="@+id/emptyPageImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/empty_page_image"
-        app:layout_constraintBottom_toTopOf="@id/myCocktailsTV"
+        app:layout_constraintBottom_toTopOf="@id/myCocktailsText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/myCocktailsTV"
+        android:id="@+id/myCocktailsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/didact_gothic"
-        android:text="@string/my_cocktails"
+        android:text="@string/cocktails_item_title"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@id/addCocktailGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emptyPageIV" />
+        app:layout_constraintTop_toBottomOf="@id/emptyPageImage" />
 
     <LinearLayout
         android:id="@+id/addCocktailGroup"
@@ -45,7 +45,7 @@
             android:gravity="center_horizontal"
             android:lines="2"
             android:maxWidth="100dp"
-            android:text="@string/add_your_first_cocktail_here"
+            android:text="@string/empty_cocktails_item_add_cocktail"
             android:textColor="@color/custom_gray"
             android:textSize="16sp" />
 
@@ -55,23 +55,14 @@
             android:layout_marginBottom="60dp"
             android:src="@drawable/arrow" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/emptyCocktailAddBtn"
-            style="@style/Widget.Material3.Button.ElevatedButton.Icon"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addCocktailButton"
+            style="@style/addFab_custom"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="bottom|center"
-            android:backgroundTint="#4B97FF"
-            android:insetLeft="0dp"
-            android:insetTop="0dp"
-            android:insetRight="0dp"
-            android:insetBottom="0dp"
-            android:padding="0dp"
-            app:icon="@drawable/add_frame"
-            app:iconGravity="textStart"
-            app:iconPadding="0dp"
-            app:iconSize="24dp"
-            app:iconTint="@color/white" />
+            android:contentDescription="@string/fragment_cocktails_fab_description"
+            android:src="@drawable/add_frame" />
 
 
     </LinearLayout>

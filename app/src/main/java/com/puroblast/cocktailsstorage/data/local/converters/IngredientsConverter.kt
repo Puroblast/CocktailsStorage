@@ -1,8 +1,9 @@
 package com.puroblast.cocktailsstorage.data.local.converters
 
 import androidx.room.TypeConverter
-import com.puroblast.cocktailsstorage.utils.EMPTY_STRING
-import com.puroblast.cocktailsstorage.utils.SEPARATOR
+
+private const val SEPARATOR = ", "
+private const val EMPTY_STRING = ""
 
 class IngredientsConverter {
 
@@ -10,8 +11,7 @@ class IngredientsConverter {
     fun toString(descriptions: List<String>): String {
         return if (descriptions.isNotEmpty()) {
             descriptions.joinToString(SEPARATOR)
-        } else
-            EMPTY_STRING
+        } else EMPTY_STRING
     }
 
     @TypeConverter
@@ -22,4 +22,5 @@ class IngredientsConverter {
             emptyList()
         }
     }
+
 }

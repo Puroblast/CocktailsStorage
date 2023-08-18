@@ -2,6 +2,7 @@ package com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.vi
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.cocktailsstorage.R
 import com.puroblast.cocktailsstorage.databinding.FragmentCocktailsBinding
+import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.CocktailsUiState
 import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapters.CocktailsAdapterDelegate
 import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapters.EmptyCocktailsAdapterDelegate
 import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapters.HeaderAdapterDelegate
@@ -27,29 +29,21 @@ class CocktailsFragment : Fragment(R.layout.fragment_cocktails) {
     private val binding by viewBinding(FragmentCocktailsBinding::bind)
     private val viewModel by viewModels<CocktailsViewModel>()
 
-    override fun onResume() {
-        viewModel.collectData()
-        super.onResume()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-
     }
 
     private fun initView() {
-        val cocktailsLM = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
-        val cocktailsAdapter = CommonAdapter()
-        cocktailsAdapter.apply {
+        val cocktailsLayoutManager = StaggeredGridLayoutManager(2, RecyclerView.VERTICAL)
+        val cocktailsAdapter = CommonAdapter().apply {
             addDelegate(CocktailsAdapterDelegate())
             addDelegate(EmptyCocktailsAdapterDelegate())
             addDelegate(HeaderAdapterDelegate())
         }
         with(binding) {
-            cocktailsRV.layoutManager = cocktailsLM
-            cocktailsRV.adapter = cocktailsAdapter
-            addButton.hide()
+            cocktailsRecycler.layoutManager = cocktailsLayoutManager
+            cocktailsRecycler.adapter = cocktailsAdapter
             addButton.setOnClickListener {
                 findNavController().navigate(R.id.action_cocktailsFragment_to_addCocktailFragment2)
             }
@@ -57,16 +51,18 @@ class CocktailsFragment : Fragment(R.layout.fragment_cocktails) {
 
 
         viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.cocktailsState.collect {
-                    cocktailsAdapter.submitList(it.items)
-                    if (it.isBottomSheetVisible) {
-                        binding.addButton.show()
-                    }
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.collectData()
+                viewModel.cocktailsUiState.collect {
+                    render(it,cocktailsAdapter)
                 }
             }
         }
+    }
 
+    private fun render(uiState: CocktailsUiState, adapter: CommonAdapter) {
+        adapter.submitList(uiState.items)
+        binding.addButton.isVisible = uiState.isBottomSheetVisible
     }
 
 }

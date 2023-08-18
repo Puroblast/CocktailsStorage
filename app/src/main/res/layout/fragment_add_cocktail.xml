@@ -14,17 +14,17 @@
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/ImageCocktailCV"
+            android:id="@+id/cocktailImageCard"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:clickable="true"
             android:focusable="true"
-            app:cardCornerRadius="30dp">
+            app:cardCornerRadius="50dp">
 
             <ImageView
-                android:id="@+id/ImageCocktail"
+                android:id="@+id/cocktailImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -34,82 +34,107 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cocktailNameTIL"
+            android:id="@+id/cocktailNameInput"
+            style="@style/textInputLayout_custom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            app:boxStrokeErrorColor="@color/red"
-            app:errorTextColor="@color/red"
-            app:expandedHintEnabled="false"
-            app:placeholderText="@string/cocktail_name">
+            app:placeholderText="@string/fragment_add_cocktail_name_placeholder">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cocktailNameET"
+                android:id="@+id/cocktailNameText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/title" />
+                android:hint="@string/fragment_add_cocktail_name_hint" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/textInputLayout_custom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="174dp"
             android:layout_marginBottom="30dp"
-            android:hint="@string/description"
-            app:expandedHintEnabled="false">
+            android:hint="@string/fragment_add_cocktail_description_hint"
+            app:helperText="@string/fragment_add_cocktail_helper_text_optional">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/descriptionET"
+                android:id="@+id/descriptionText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <com.google.android.material.chip.ChipGroup
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginBottom="20dp">
+            android:layout_height="24dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
 
-
-            <com.google.android.material.chip.Chip
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/ingredientsChipGroup"
                 android:layout_width="wrap_content"
+                android:layout_height="24dp">
+
+                <com.google.android.material.chip.Chip
+                    style="@style/chip_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    tools:text="Test" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="24dp"
                 android:layout_height="match_parent"
-                tools:text="TEST" />
+                android:layout_marginStart="10dp"
+                android:backgroundTint="@color/custom_blue"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                app:icon="@drawable/add_frame"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconTint="@color/white" />
 
+        </LinearLayout>
 
-        </com.google.android.material.chip.ChipGroup>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/textInputLayout_custom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="174dp"
             android:layout_marginBottom="30dp"
-            android:hint="@string/recipe"
-            app:expandedHintEnabled="false">
+            android:hint="@string/fragment_add_cocktail_recipe_hint"
+            app:helperText="@string/fragment_add_cocktail_helper_text_optional">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/recipeET"
+                android:id="@+id/recipeText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/saveBtn"
+            android:id="@+id/saveButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/black"
-            android:text="@string/save"
+            android:layout_height="55dp"
+            android:backgroundTint="@color/custom_blue"
+            android:text="@string/fragment_add_cocktail_save_button"
+            app:cornerRadius="80dp"
             app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/cancelBtn"
+            android:id="@+id/cancelButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
+            android:layout_marginBottom="30dp"
             android:backgroundTint="@color/white"
-            android:text="@string/cancel"
-            android:textColor="@color/black"
-            app:strokeColor="@color/black"
+            android:text="@string/fragment_add_cocktail_cancel_button"
+            android:textColor="@color/custom_blue"
+            app:cornerRadius="80dp"
+            app:strokeColor="@color/custom_blue"
             app:strokeWidth="1dp" />
 
     </LinearLayout>

@@ -1,14 +1,13 @@
 <resources>
     <string name="app_name">CocktailsStorage</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="my_cocktails">My cocktails</string>
-    <string name="add_your_first_cocktail_here">Add your first cocktail here</string>
-    <string name="add">add</string>
-    <string name="title">Title</string>
-    <string name="cocktail_name">Cocktail name</string>
-    <string name="description">Description</string>
-    <string name="recipe">Recipe</string>
-    <string name="save">Save</string>
-    <string name="cancel">Cancel</string>
+    <string name="cocktails_item_title">My cocktails</string>
+    <string name="empty_cocktails_item_add_cocktail">Add your first cocktail here</string>
+    <string name="fragment_cocktails_fab_description">add</string>
+    <string name="fragment_add_cocktail_name_hint">Title</string>
+    <string name="fragment_add_cocktail_name_placeholder">Cocktail name</string>
+    <string name="fragment_add_cocktail_description_hint">Description</string>
+    <string name="fragment_add_cocktail_recipe_hint">Recipe</string>
+    <string name="fragment_add_cocktail_save_button">Save</string>
+    <string name="fragment_add_cocktail_cancel_button">Cancel</string>
+    <string name="fragment_add_cocktail_helper_text_optional">Optional field</string>
 </resources>
