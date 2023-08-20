@@ -1,5 +1,6 @@
 package com.puroblast.cocktailsstorage.presentation.features.add_cocktail_screen
 
+import android.util.Log
 import android.widget.ImageView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.ActivityResultRegistry
@@ -20,8 +21,10 @@ class AddCocktailLifecycleObserver(
 
     override fun onCreate(owner: LifecycleOwner) {
         getContent = registry.register(REGISTRY_KEY, owner, ActivityResultContracts.GetContent()) {
-            binding.cocktailImage.setImageURI(it)
-            binding.cocktailImage.scaleType = ImageView.ScaleType.CENTER_CROP
+            if (it != null) {
+                binding.cocktailImage.setImageURI(it)
+                binding.cocktailImage.scaleType = ImageView.ScaleType.CENTER_CROP
+            }
         }
     }
 

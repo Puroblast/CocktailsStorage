@@ -1,13 +1,16 @@
 package com.puroblast.cocktailsstorage.presentation.features.add_cocktail_screen.views
 
+import android.app.ActionBar.LayoutParams
 import android.content.res.ColorStateList
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.chip.Chip
 import com.puroblast.cocktailsstorage.R
 import com.puroblast.cocktailsstorage.data.local.entities.Cocktail
 import com.puroblast.cocktailsstorage.databinding.FragmentAddCocktailBinding
