@@ -22,5 +22,13 @@
         <action
             android:id="@+id/action_addCocktailFragment_to_cocktailsFragment2"
             app:destination="@id/cocktailsFragment" />
+        <action
+            android:id="@+id/action_addCocktailFragment_to_addIngredientDialogFragment"
+            app:destination="@id/addIngredientDialogFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/addIngredientDialogFragment"
+        android:name="com.puroblast.cocktailsstorage.presentation.features.add_cocktail_screen.views.AddIngredientDialogFragment"
+        android:label="fragment_add_ingredient_dialog"
+        tools:layout="@layout/fragment_add_ingredient_dialog" />
 </navigation>

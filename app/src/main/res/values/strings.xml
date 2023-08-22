@@ -10,4 +10,10 @@
     <string name="fragment_add_cocktail_save_button">Save</string>
     <string name="fragment_add_cocktail_cancel_button">Cancel</string>
     <string name="fragment_add_cocktail_helper_text_optional">Optional field</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_add_ingredient_hint">Ingredient</string>
+    <string name="fragment_add_ingredient_name_placeholder">Ingredient\'s name</string>
+    <string name="fragment_add_ingredient_title_helperText">Add title</string>
+    <string name="fragment_add_ingredient_add_button_text">Add</string>
+    <string name="fragment_add_ingredient_header">Add ingredient</string>
 </resources>
