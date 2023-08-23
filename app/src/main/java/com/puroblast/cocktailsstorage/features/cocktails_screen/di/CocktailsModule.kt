@@ -1,4 +1,4 @@
-package com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.di
+package com.puroblast.cocktailsstorage.features.cocktails_screen.di
 
 import com.puroblast.cocktailsstorage.utils.mappers.CocktailsToCocktailsItemMapper
 import dagger.Module

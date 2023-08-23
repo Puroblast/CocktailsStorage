@@ -1,4 +1,4 @@
-package com.puroblast.cocktailsstorage.presentation.features.cocktails_screen
+package com.puroblast.cocktailsstorage.features.cocktails_screen
 
 import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonDelegateItem
 

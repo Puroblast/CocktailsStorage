@@ -1,4 +1,4 @@
-package com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.views
+package com.puroblast.cocktailsstorage.features.cocktails_screen.views
 
 import android.os.Bundle
 import android.view.View
@@ -14,11 +14,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.puroblast.cocktailsstorage.R
 import com.puroblast.cocktailsstorage.databinding.FragmentCocktailsBinding
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.CocktailsUiState
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapters.CocktailsAdapterDelegate
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapters.EmptyCocktailsAdapterDelegate
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapters.HeaderAdapterDelegate
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.viewmodels.CocktailsViewModel
+import com.puroblast.cocktailsstorage.features.cocktails_screen.CocktailsUiState
+import com.puroblast.cocktailsstorage.features.cocktails_screen.recycler.adapters.CocktailsAdapterDelegate
+import com.puroblast.cocktailsstorage.features.cocktails_screen.recycler.adapters.EmptyCocktailsAdapterDelegate
+import com.puroblast.cocktailsstorage.features.cocktails_screen.recycler.adapters.HeaderAdapterDelegate
+import com.puroblast.cocktailsstorage.features.cocktails_screen.viewmodels.CocktailsViewModel
 import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

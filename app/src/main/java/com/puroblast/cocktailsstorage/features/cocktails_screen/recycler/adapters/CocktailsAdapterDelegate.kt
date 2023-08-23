@@ -1,12 +1,11 @@
-package com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapters
+package com.puroblast.cocktailsstorage.features.cocktails_screen.recycler.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.puroblast.cocktailsstorage.R
-import com.puroblast.cocktailsstorage.databinding.CocktailsItemBinding
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapter_items.CocktailsAdapterItem
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.CocktailsViewHolder
+import com.puroblast.cocktailsstorage.features.cocktails_screen.recycler.adapter_items.CocktailsAdapterItem
+import com.puroblast.cocktailsstorage.features.cocktails_screen.recycler.CocktailsViewHolder
 import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonAdapterDelegate
 import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonDelegateItem
 

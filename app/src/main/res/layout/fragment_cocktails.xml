@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
-    tools:context=".presentation.features.cocktails_screen.views.CocktailsFragment">
+    tools:context=".features.cocktails_screen.views.CocktailsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cocktailsRecycler"

@@ -1,11 +1,11 @@
-package com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.viewmodels
+package com.puroblast.cocktailsstorage.features.cocktails_screen.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.CocktailsUiState
+import com.puroblast.cocktailsstorage.features.cocktails_screen.CocktailsUiState
 import com.puroblast.cocktailsstorage.data.local.storage.CocktailsStorage
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapter_items.EmptyCocktailsAdapterItem
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapter_items.MyCocktailsHeaderItem
+import com.puroblast.cocktailsstorage.features.cocktails_screen.recycler.adapter_items.EmptyCocktailsAdapterItem
+import com.puroblast.cocktailsstorage.features.cocktails_screen.recycler.adapter_items.MyCocktailsHeaderItem
 import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonDelegateItem
 import com.puroblast.cocktailsstorage.utils.mappers.CocktailsToCocktailsItemMapper
 import dagger.hilt.android.lifecycle.HiltViewModel

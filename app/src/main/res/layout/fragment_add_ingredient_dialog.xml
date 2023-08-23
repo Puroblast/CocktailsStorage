@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:paddingHorizontal="30dp"
     android:paddingVertical="10dp"
-    tools:context=".presentation.features.add_cocktail_screen.views.AddIngredientDialogFragment">
+    tools:context=".features.add_cocktail_screen.views.AddIngredientDialogFragment">
 
     <TextView
         android:layout_width="wrap_content"

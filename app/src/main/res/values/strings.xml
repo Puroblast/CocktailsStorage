@@ -16,4 +16,5 @@
     <string name="fragment_add_ingredient_title_helperText">Add title</string>
     <string name="fragment_add_ingredient_add_button_text">Add</string>
     <string name="fragment_add_ingredient_header">Add ingredient</string>
+    <string name="title_text">Add title</string>
 </resources>

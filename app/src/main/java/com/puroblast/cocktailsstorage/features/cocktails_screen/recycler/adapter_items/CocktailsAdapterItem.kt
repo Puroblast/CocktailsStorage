@@ -1,4 +1,4 @@
-package com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapter_items
+package com.puroblast.cocktailsstorage.features.cocktails_screen.recycler.adapter_items
 
 import com.puroblast.cocktailsstorage.data.local.entities.Cocktail
 import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonDelegateItem

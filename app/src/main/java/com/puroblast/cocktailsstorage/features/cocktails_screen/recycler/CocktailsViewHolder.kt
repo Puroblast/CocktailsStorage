@@ -1,19 +1,15 @@
-package com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler
+package com.puroblast.cocktailsstorage.features.cocktails_screen.recycler
 
 import android.view.View
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import by.kirich1409.viewbindingdelegate.viewBinding
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.imageview.ShapeableImageView
 import com.puroblast.cocktailsstorage.R
 import com.puroblast.cocktailsstorage.data.local.entities.Cocktail
-import com.puroblast.cocktailsstorage.databinding.CocktailsItemBinding
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapter_items.CocktailsAdapterItem
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapter_items.EmptyCocktailsAdapterItem
-import com.puroblast.cocktailsstorage.presentation.features.cocktails_screen.recycler.adapter_items.MyCocktailsHeaderItem
+import com.puroblast.cocktailsstorage.features.cocktails_screen.recycler.adapter_items.CocktailsAdapterItem
+import com.puroblast.cocktailsstorage.features.cocktails_screen.recycler.adapter_items.EmptyCocktailsAdapterItem
 import com.puroblast.cocktailsstorage.utils.adapter_delegate.CommonDelegateItem
 
 class CocktailsViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
