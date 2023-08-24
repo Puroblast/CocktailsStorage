@@ -21,22 +21,20 @@ import com.google.android.material.chip.Chip
 import com.puroblast.cocktailsstorage.R
 import com.puroblast.cocktailsstorage.data.local.entities.Cocktail
 import com.puroblast.cocktailsstorage.databinding.FragmentAddCocktailBinding
-import com.puroblast.cocktailsstorage.features.add_cocktail_screen.CocktailState
 import com.puroblast.cocktailsstorage.features.add_cocktail_screen.viewmodels.AddCocktailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-
-
 
 @AndroidEntryPoint
 class AddCocktailFragment : Fragment(R.layout.fragment_add_cocktail) {
 
     private val binding by viewBinding(FragmentAddCocktailBinding::bind)
     private val viewModel by activityViewModels<AddCocktailViewModel>()
-    private lateinit var pickMedia : ActivityResultLauncher<PickVisualMediaRequest>
+    private lateinit var pickMedia: ActivityResultLauncher<PickVisualMediaRequest>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) {
             if (it != null) {
                 viewModel.saveAddCocktailUi(image = it)
@@ -46,13 +44,14 @@ class AddCocktailFragment : Fragment(R.layout.fragment_add_cocktail) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         setupListeners()
         observeAddCocktailUi()
-
     }
 
     override fun onDestroy() {
         super.onDestroy()
+
         pickMedia.unregister()
     }
 
@@ -71,48 +70,52 @@ class AddCocktailFragment : Fragment(R.layout.fragment_add_cocktail) {
                 pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
             }
             cancelButton.setOnClickListener {
-                viewModel.resetAddCocktailState()
                 findNavController().popBackStack()
+                viewModel.resetAddCocktailState()
             }
             addChipButton.setOnClickListener {
-                findNavController().navigate(R.id.action_addCocktailFragment_to_addIngredientDialogFragment)
+                val dialog = AddIngredientDialogFragment()
+                dialog.isCancelable = false
+                dialog.show(childFragmentManager, "DIALOG")
             }
             saveButton.setOnClickListener {
-                if (cocktailNameText.text.toString().isNotEmpty()) {
-                    viewModel.save(
-                        Cocktail(
-                            title = cocktailNameText.text.toString(),
-                            ingredients = emptyList()
-                        )
-                    )
-                    findNavController().popBackStack()
-                } else {
+                if (cocktailNameText.text.isNullOrBlank()) {
                     val redColor = ContextCompat.getColor(requireContext(), R.color.red)
                     cocktailNameInput.error = getString(R.string.title_text)
                     cocktailNameText.setHintTextColor(redColor)
                     cocktailNameInput.placeholderTextColor = ColorStateList.valueOf(redColor)
                     cocktailNameInput.hintTextColor = ColorStateList.valueOf(redColor)
+                } else {
+                    with(viewModel.cocktailState.value) {
+                        viewModel.save(
+                            Cocktail(
+                                title = name,
+                                ingredients = ingredients,
+                                image = image.toString(),
+                                recipe = recipe,
+                                description = description
+                            )
+                        )
+                        findNavController().popBackStack()
+                    }
                 }
 
             }
         }
     }
 
-    private fun observeAddCocktailUi(){
+    private fun observeAddCocktailUi() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.cocktailState.collect {cocktailState ->
+                viewModel.cocktailState.collect { cocktailState ->
                     with(binding) {
                         if (ingredientsChipGroup.size - 1 != cocktailState.ingredients.size) {
                             ingredientsChipGroup.removeViews(
-                                0,
-                                ingredientsChipGroup.size - 1
+                                0, ingredientsChipGroup.size - 1
                             )
-                            cocktailState.ingredients.forEach {name ->
+                            cocktailState.ingredients.forEach { name ->
                                 val chip = layoutInflater.inflate(
-                                    R.layout.chip_item,
-                                    ingredientsChipGroup,
-                                    false
+                                    R.layout.chip_item, ingredientsChipGroup, false
                                 ) as Chip
                                 chip.text = name
                                 chip.setOnCloseIconClickListener {
@@ -120,8 +123,7 @@ class AddCocktailFragment : Fragment(R.layout.fragment_add_cocktail) {
                                     viewModel.deleteClosedIngredient(index)
                                 }
                                 ingredientsChipGroup.addView(
-                                    chip,
-                                    ingredientsChipGroup.size - 1
+                                    chip, ingredientsChipGroup.size - 1
                                 )
                             }
                         }

@@ -1,8 +1,9 @@
 package com.puroblast.cocktailsstorage.features.add_cocktail_screen.views
 
-
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
@@ -18,31 +19,43 @@ class AddIngredientDialogFragment : DialogFragment(R.layout.fragment_add_ingredi
     private val binding by viewBinding(FragmentAddIngredientDialogBinding::bind)
     private val viewModel by activityViewModels<AddCocktailViewModel>()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setStyle(R.style.dialog_custom, R.style.dialog_custom)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (savedInstanceState != null) {
-            binding.ingredientNameText.setText(savedInstanceState.getString("Ingredient"))
-        }
-        setupListeners()
 
+        setupListeners()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+
         binding.ingredientNameText.doAfterTextChanged {
-            outState.putString("Ingredient" , binding.ingredientNameText.text.toString())
+            outState.putString("Ingredient", binding.ingredientNameText.text.toString())
         }
     }
 
     private fun setupListeners() {
         with(binding) {
-            addButton.setOnClickListener {
-                viewModel.saveAddCocktailUi(ingredient = binding.ingredientNameText.text.toString())
-                dismiss()
-            }
-
             cancelButton.setOnClickListener {
                 dismiss()
+            }
+            addButton.setOnClickListener {
+                if (ingredientNameText.text.isNullOrBlank()) {
+                    with(ingredientNameInput) {
+                        val redColor = ContextCompat.getColor(requireContext(), R.color.red)
+                        error = getString(R.string.title_text)
+                        placeholderTextColor = ColorStateList.valueOf(redColor)
+                        hintTextColor = ColorStateList.valueOf(redColor)
+                    }
+                } else {
+                    viewModel.saveAddCocktailUi(ingredient = ingredientNameText.text.toString())
+                    dismiss()
+                }
             }
         }
     }

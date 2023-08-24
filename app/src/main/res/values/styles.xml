@@ -35,5 +35,10 @@
         <item name="font">@font/didact_gothic</item>
     </style>
 
+    <style name="dialog_custom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@drawable/bg_corner_dialog</item>
+    </style>
+
 
 </resources>
