@@ -97,6 +97,7 @@ class AddCocktailFragment : Fragment(R.layout.fragment_add_cocktail) {
                             )
                         )
                         findNavController().popBackStack()
+                        viewModel.resetAddCocktailState()
                     }
                 }
 
