@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="roundedCorners" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">40dp</item>
+    </style>
+
+
+    <style name="addFab_custom" parent="Widget.Material3.Button.ElevatedButton.Icon">
+        <item name="backgroundTint">@color/custom_blue</item>
+        <item name="tint">@color/white</item>
+        <item name="fabCustomSize">80dp</item>
+        <item name="maxImageSize">24dp</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="textInputLayout_custom" parent="">
+        <item name="boxCornerRadiusBottomEnd">40dp</item>
+        <item name="boxCornerRadiusBottomStart">40dp</item>
+        <item name="boxCornerRadiusTopEnd">40dp</item>
+        <item name="boxCornerRadiusTopStart">40dp</item>
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="errorTextColor">@color/red</item>
+        <item name="expandedHintEnabled">false</item>
+    </style>
+
+    <style name="chip_custom" parent="">
+        <item name="android:textSize">12sp</item>
+        <item name="closeIconVisible">true</item>
+        <item name="closeIconSize">16dp</item>
+        <item name="closeIconTint">@color/custom_blue</item>
+        <item name="chipMinTouchTargetSize">24dp</item>
+        <item name="chipCornerRadius">20dp</item>
+        <item name="font">@font/didact_gothic</item>
+    </style>
+
+    <style name="dialog_custom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@drawable/bg_corner_dialog</item>
+    </style>
+
+
+</resources>
